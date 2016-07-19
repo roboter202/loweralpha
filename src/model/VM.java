@@ -1065,7 +1065,8 @@ public class VM extends Thread {
     public static final int TERMINATED = -1;
 
     public int getLineIndex() {
-        return this.progCode.get(this.programCounter).getLineIndex();
+	if (this.progCode.size() >= this.programCounter) return 0;
+	return this.progCode.get(this.programCounter).getLineIndex();
     }
 
 }
